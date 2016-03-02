@@ -117,7 +117,7 @@ public:
                     Justification::centredLeft, true);
     }
 
-    void selectedRowsChanged (int /*lastRowSelected*/) override
+    void selectedRowsChanged (int /*lastRowSelected*/, bool) override
     {
         sendChangeMessage();
     }

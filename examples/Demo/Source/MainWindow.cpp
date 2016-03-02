@@ -184,7 +184,7 @@ public:
         }
     }
 
-    void selectedRowsChanged (int lastRowSelected) override
+    void selectedRowsChanged (int lastRowSelected, bool) override
     {
         if (JuceDemoTypeBase* selectedDemoType = JuceDemoTypeBase::getDemoTypeList() [lastRowSelected])
         {

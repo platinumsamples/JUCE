@@ -185,7 +185,7 @@ public:
         s.draw (g, Rectangle<int> (width, height).expanded (-4, 50).toFloat());
     }
 
-    void selectedRowsChanged (int /*lastRowselected*/) override
+    void selectedRowsChanged (int /*lastRowselected*/, bool) override
     {
         refreshPreviewBoxFont();
     }
