@@ -50,7 +50,13 @@ const StringArray& AudioFormat::getFileExtensions() const       { return fileExt
 bool AudioFormat::isCompressed()                                { return false; }
 StringArray AudioFormat::getQualityOptions()                    { return StringArray(); }
 
-MemoryMappedAudioFormatReader* AudioFormat::createMemoryMappedReader (const File&)
+MemoryMappedAudioFormatReader* AudioFormat::createMemoryMappedReader (const File& file)
 {
+    return createMemoryMappedReader (file.createInputStream());
+}
+
+MemoryMappedAudioFormatReader* AudioFormat::createMemoryMappedReader (FileInputStream* fis)
+{
+    ScopedPointer<FileInputStream> f (fis);
     return nullptr;
 }

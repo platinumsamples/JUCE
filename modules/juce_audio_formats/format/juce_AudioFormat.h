@@ -109,9 +109,14 @@ public:
                                                 bool deleteStreamIfOpeningFails) = 0;
 
     /** Attempts to create a MemoryMappedAudioFormatReader, if possible for this format.
-        If the format does not support this, the method will return nullptr;
+        If the format does not support this, the method will return nullptr.
     */
-    virtual MemoryMappedAudioFormatReader* createMemoryMappedReader (const File& file);
+    MemoryMappedAudioFormatReader* createMemoryMappedReader (const File& file);
+
+    /** Attempts to create a MemoryMappedAudioFormatReader, if possible for this format.
+        If the format does not support this, the method will return nullptr.
+    */
+    virtual MemoryMappedAudioFormatReader* createMemoryMappedReader (FileInputStream* stream);
 
     /** Tries to create an object that can write to a stream with this audio format.
 

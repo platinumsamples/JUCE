@@ -1607,14 +1607,14 @@ AudioFormatReader* WavAudioFormat::createReaderFor (InputStream* sourceStream,
     return nullptr;
 }
 
-MemoryMappedAudioFormatReader* WavAudioFormat::createMemoryMappedReader (const File& file)
+MemoryMappedAudioFormatReader* WavAudioFormat::createMemoryMappedReader (FileInputStream* fis)
 {
-    if (FileInputStream* fin = file.createInputStream())
+    if (fis != nullptr)
     {
-        WavAudioFormatReader reader (fin);
+        WavAudioFormatReader reader (fis);
 
         if (reader.lengthInSamples > 0)
-            return new MemoryMappedWavReader (file, reader);
+            return new MemoryMappedWavReader (fis->getFile(), reader);
     }
 
     return nullptr;

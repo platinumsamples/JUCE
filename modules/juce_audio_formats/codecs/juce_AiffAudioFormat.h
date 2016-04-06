@@ -70,7 +70,7 @@ public:
     AudioFormatReader* createReaderFor (InputStream* sourceStream,
                                         bool deleteStreamIfOpeningFails) override;
 
-    MemoryMappedAudioFormatReader* createMemoryMappedReader (const File&) override;
+    MemoryMappedAudioFormatReader* createMemoryMappedReader (FileInputStream*) override;
 
     AudioFormatWriter* createWriterFor (OutputStream* streamToWriteTo,
                                         double sampleRateToUse,

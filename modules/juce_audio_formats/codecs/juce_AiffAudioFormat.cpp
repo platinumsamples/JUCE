@@ -983,14 +983,14 @@ AudioFormatReader* AiffAudioFormat::createReaderFor (InputStream* sourceStream, 
     return nullptr;
 }
 
-MemoryMappedAudioFormatReader* AiffAudioFormat::createMemoryMappedReader (const File& file)
+MemoryMappedAudioFormatReader* AiffAudioFormat::createMemoryMappedReader (FileInputStream* fin)
 {
-    if (FileInputStream* fin = file.createInputStream())
+    if (fin != nullptr)
     {
         AiffAudioFormatReader reader (fin);
 
         if (reader.lengthInSamples > 0)
-            return new MemoryMappedAiffReader (file, reader);
+            return new MemoryMappedAiffReader (fin->getFile(), reader);
     }
 
     return nullptr;
